@@ -13,7 +13,7 @@ The modes of the aluminum wing are:
 
 The final results below indicate the total deformation at each mode. 
 ### Mode 1
-![](wing_modalA_files/user_files/deformation_mode1.png.mp4)
+![](wing_modalA_files/user_files/deformation_mode1.png)
 ### Mode 2
 ![](wing_modalA_files/user_files/deformation_mode2.png)
 ### Mode 3
