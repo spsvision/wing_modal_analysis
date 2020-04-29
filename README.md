@@ -1,8 +1,19 @@
 # Wing Modal Analysis 
-In this project, you'll find the full project details of a modal analysis of a typical aircraft wing.
+In this project, you'll find the full project details of a modal analysis of a typical aircraft wing. Below you'll notice that one end is fixed (as it would be to the fuselage). The same image also shows the mesh
+![](wing_modalA_files/user_files/wingmesh_sup.png)
+The modes of the aluminum wing are:
+| Mode     | Frequency [Hz] |
+| ---      | ---       |
+| 1 | 4.83 |
+| 2 | 25.32 |
+| 3 | 32.17 |
+| 4 | 38.08 |
+| 5 | 48.30 |
+| 6 | 53.53 |
 
+The final results below indicate the total deformation at each mode. 
 ### Mode 1
-(wing_modalA_files/user_files/deformation_mode1.png)
+![](wing_modalA_files/user_files/deformation_mode1.png)
 ### Mode 2
 ![](wing_modalA_files/user_files/deformation_mode2.png)
 ### Mode 3
