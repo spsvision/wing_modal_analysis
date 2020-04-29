@@ -2,7 +2,7 @@
 In this project, you'll find the full project details of a modal analysis of a typical aircraft wing.
 
 ### Mode 1
-![](wing_modalA_files/user_files/deformation_mode1.png)
+(wing_modalA_files/user_files/deformation_mode1.png)
 ### Mode 2
 ![](wing_modalA_files/user_files/deformation_mode2.png)
 ### Mode 3
