@@ -1,0 +1,64 @@
+# encoding: utf-8
+# 2019 R1
+SetScriptVersion(Version="19.3.111")
+template1 = GetTemplate(
+    TemplateName="Modal",
+    Solver="ANSYS")
+system1 = template1.CreateSystem()
+template2 = GetTemplate(TemplateName="Geometry")
+system2 = template2.CreateSystem(
+    Position="Right",
+    RelativeTo=system1)
+engineeringData1 = system1.GetContainer(ComponentName="Engineering Data")
+matl1 = engineeringData1.CreateMaterial(Name="Al 6061-T6")
+matlProp1 = matl1.CreateProperty(
+    Name="Elasticity",
+    Behavior="Isotropic",
+    Qualifiers={"Definition": "", "Behavior": "Isotropic"})
+matlProp1.SetVariableProperty(
+    VariableName="Young's Modulus",
+    Property="Unit",
+    Value="psi")
+matlProp1.SetData(
+    Index=-1,
+    Variables=["Young's Modulus"],
+    Values=[["10000000 [psi]"]])
+matlProp1.SetData(
+    Variables=["Poisson's Ratio"],
+    Values=[["0.33"]])
+matlProp2 = matl1.CreateProperty(
+    Name="Density",
+    Qualifiers={"Definition": "", "Behavior": ""})
+matlProp2.SetData(
+    Index=-1,
+    Variables=["Density"],
+    Values=[["2700 [kg m^-3]"]])
+Save(Overwrite=True)
+geometry1 = system2.GetContainer(ComponentName="Geometry")
+geometry1.SetFile(FilePath="D:/SPSProjects/ANSYS_projects/3dAirfoilSurface.IGS")
+geometry1.Edit()
+Save(Overwrite=True)
+geometry1.Exit()
+Save(Overwrite=True)
+geometryComponent1 = system2.GetComponent(Name="Geometry")
+modelComponent1 = system1.GetComponent(Name="Model")
+geometryComponent1.TransferData(TargetComponent=modelComponent1)
+modelComponent1.Refresh()
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Edit()
+Save(Overwrite=True)
+Save(Overwrite=True)
+matlProp2.SetData(
+    Variables=["Density"],
+    Values=[["2709 [kg m^-3]"]])
+matlProp2.SetData(
+    Variables=["Density"],
+    Values=[["2700 [kg m^-3]"]])
+Save(Overwrite=True)
+modelComponent1.Refresh()
+model1.Edit()
+Save(Overwrite=True)
+Save(Overwrite=True)
+Save(Overwrite=True)
+model1.Exit()
+Save(Overwrite=True)
